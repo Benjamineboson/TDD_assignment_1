@@ -137,6 +137,11 @@ public class IIntArrayImplTest {
     }
 
     @Test
+    public void testInsertAt_positionOutOfBounds_negative(){
+        assertThrows(ArrayIndexOutOfBoundsException.class,()-> iIntArrayImpl.insertAt(-1,0));
+    }
+
+    @Test
     public void testInsertAt_null(){
         iIntArrayImpl.setIntArray(null);
         assertThrows(NullPointerException.class,()-> iIntArrayImpl.insertAt(19,0));
