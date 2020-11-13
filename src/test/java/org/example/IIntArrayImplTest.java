@@ -124,14 +124,6 @@ public class IIntArrayImplTest {
     }
 
     @Test
-    public void testInsertAt_empty(){
-        iIntArrayImpl.setIntArray(new int[]{});
-        iIntArrayImpl.insertAt(0,999);
-        int [] expected = {999};
-        assertArrayEquals(expected,iIntArrayImpl.getIntArray());
-    }
-
-    @Test
     public void testInsertAt_positionOutOfBounds(){
         assertThrows(ArrayIndexOutOfBoundsException.class,()-> iIntArrayImpl.insertAt(13,0));
     }
@@ -139,6 +131,14 @@ public class IIntArrayImplTest {
     @Test
     public void testInsertAt_positionOutOfBounds_negative(){
         assertThrows(ArrayIndexOutOfBoundsException.class,()-> iIntArrayImpl.insertAt(-1,0));
+    }
+
+    @Test
+    public void testInsertAt_empty(){
+        iIntArrayImpl.setIntArray(new int[]{});
+        iIntArrayImpl.insertAt(0,999);
+        int [] expected = {999};
+        assertArrayEquals(expected,iIntArrayImpl.getIntArray());
     }
 
     @Test
